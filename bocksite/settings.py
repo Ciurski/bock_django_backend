@@ -14,6 +14,7 @@ from pathlib import Path
 import django_heroku
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Static files (CSS, JavaScript, Images)
@@ -39,6 +40,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['bock-django.herokuapp.com', '127.0.0.1']
 
+# REST API
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+    "DATE_INPUT_FORMATS": ["%d-%m-%Y"]
+}
 
 # Application definition
 
@@ -49,6 +62,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'competitors',
+    'tournaments',
 ]
 
 MIDDLEWARE = [
