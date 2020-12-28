@@ -85,9 +85,9 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    '127.0.0.1',
+    'http://127.0.0.1',
     'http://localhost:3000',
-    'bock-django.herokuapp.com'
+    'https://bock-react.herokuapp.com'
 )
 
 ROOT_URLCONF = 'bocksite.urls'
